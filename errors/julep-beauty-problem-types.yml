@@ -1,0 +1,65 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/julep-beauty-storefront-openapi.yml
+name: Julep error catalog
+description: >-
+  Error semantics for the Julep storefront, derived from the response codes described in
+  openapi/julep-beauty-storefront-openapi.yml and from errors actually observed while
+  probing on 2026-07-19. Julep publishes no error reference page.
+format: none
+format_note: >-
+  RFC 9457 application/problem+json is NOT used. Storefront failures return a bare HTTP
+  status with Shopify's generic HTML error page. The UCP/MCP endpoint is the one
+  machine-readable exception and returns JSON-RPC 2.0 error objects.
+docs: null
+http_errors:
+- status: 404
+  title: Not Found
+  applies_to: [getProduct, listCollectionProducts]
+  meaning: No product or collection exists for the supplied handle.
+  body: HTML
+  remediation: Verify the handle against /sitemap.xml or a catalog listing response.
+- status: 406
+  title: Not Acceptable
+  applies_to: [/account/login]
+  meaning: >-
+    Observed when requesting the customer-account login page programmatically; the
+    storefront rejects non-browser clients on that path.
+  body: HTML
+  observed: '2026-07-19'
+  remediation: Drive customer sign-in through the OIDC authorization endpoint instead.
+- status: 429
+  title: Too Many Requests
+  applies_to: [listProducts, listCollectionProducts, getProduct, searchStorefront, getCart]
+  meaning: Per-IP rate limit exceeded.
+  headers_observed: [Retry-After]
+  body: HTML
+  observed: '2026-07-19'
+  remediation: >-
+    Honor Retry-After (60s observed) and back off exponentially. See
+    rate-limits/julep-beauty-rate-limits.yml.
+- status: 503
+  title: Service Unavailable
+  applies_to: [listProducts, searchStorefront, getAgentInstructions]
+  meaning: >-
+    Storefront renderer temporarily unavailable. Returns Shopify's generic
+    "Something went wrong" page rather than a typed error.
+  body: HTML
+  observed: '2026-07-19'
+  remediation: Retry with backoff; the same request succeeded on a later attempt.
+jsonrpc_errors:
+  transport: JSON-RPC 2.0 over the UCP/MCP endpoint
+  endpoint: https://www.julep.com/api/ucp/mcp
+  envelope:
+    fields: [jsonrpc, id, 'error.code', 'error.message', 'error.data.code', 'error.data.content', 'error.data.continue_url']
+  items:
+  - code: -32001
+    message: UCP discovery failed
+    data_code: invalid_profile_url
+    meaning: >-
+      The calling agent did not present a resolvable UCP agent profile URI, so the server
+      would not proceed with discovery or expose its tool list.
+    observed: '2026-07-19'
+    remediation: >-
+      Publish and pass an agent profile URI as required by the UCP specification
+      (https://ucp.dev), then retry initialize/tools/list.

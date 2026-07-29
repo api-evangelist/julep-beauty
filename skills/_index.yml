@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/agents.md
+name: Julep agent skills
+description: >-
+  Agent-facing operating instructions for the Julep storefront. Julep (via the Shopify
+  platform) publishes its own agent instructions at /agents.md, so this index leads with
+  the provider's verbatim document rather than a generated substitute, and adds one
+  generated read-only browsing skill grounded in operationIds that exist in
+  openapi/julep-beauty-storefront-openapi.yml.
+skills:
+- file: skills/julep-beauty-agents.md
+  name: julep-storefront-agent
+  method: searched
+  source: https://www.julep.com/agents.md
+  summary: >-
+    Provider-published instructions: UCP discovery, the MCP commerce tool flow
+    (search_catalog, create_cart, create_checkout, update_checkout, complete_checkout),
+    read-only browsing endpoints, rate-limit backoff, and the buyer-approval rule.
+- file: skills/julep-beauty-browse-catalog.md
+  name: julep-browse-catalog
+  method: generated
+  source: openapi/julep-beauty-storefront-openapi.yml
+  summary: >-
+    Read-only catalog browsing without authentication — list products, page through a
+    collection, fetch one product, search — with the rate-limit and error handling the
+    provider actually documents.
+notes:
+- >-
+  The provider explicitly recommends the cross-store Shop skill
+  (https://shop.app/SKILL.md) for personal shopping agents that need to transact.
+- >-
+  No transactional skill is packaged here — completing checkout requires explicit
+  contemporaneous buyer approval and a UCP agent profile URI, which is not something a
+  packaged skill should encapsulate.

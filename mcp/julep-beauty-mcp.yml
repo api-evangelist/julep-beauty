@@ -1,0 +1,100 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/.well-known/ucp
+name: Julep UCP Commerce MCP Server
+description: >-
+  Julep's storefront exposes a live, hosted Model Context Protocol endpoint as the MCP
+  transport for the Universal Commerce Protocol (UCP) shopping service. The endpoint is
+  advertised in the merchant's own /.well-known/ucp profile and in /agents.md, and it is
+  served on the merchant domain. It is provided natively by the Shopify platform rather
+  than hand-built by Julep, but it is published under Julep's domain and describes
+  Julep's catalog, cart, and checkout.
+status: live
+transport: mcp
+protocol: Universal Commerce Protocol (UCP)
+endpoints:
+- url: https://www.julep.com/api/ucp/mcp
+  method: POST
+  content_type: application/json
+  source: https://www.julep.com/agents.md
+- url: https://julepmain.myshopify.com/api/ucp/mcp
+  method: POST
+  content_type: application/json
+  source: https://www.julep.com/.well-known/ucp
+  notes: The canonical endpoint value inside the UCP profile (myshopify origin).
+discovery:
+  ucp_profile: https://www.julep.com/.well-known/ucp
+  agents_md: https://www.julep.com/agents.md
+  agentic_sitemap: https://www.julep.com/sitemap_agentic_discovery.xml
+versions:
+  current: '2026-04-08'
+  supported:
+  - '2026-04-08'
+  - '2026-01-23'
+schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
+spec: https://ucp.dev/2026-04-08/specification/overview/
+verification:
+  probed: '2026-07-19'
+  request: JSON-RPC 2.0 tools/list and initialize, POST with Content-Type application/json
+  http_status: 200
+  response: >-
+    {"jsonrpc":"2.0","id":1,"error":{"code":-32001,"message":"UCP discovery failed",
+    "data":{"code":"invalid_profile_url","content":"Unable to fetch agent profile:
+    Missing profile uri"}}}
+  interpretation: >-
+    The endpoint is live and speaks JSON-RPC, but refuses tools/list to an anonymous
+    caller: UCP requires the calling agent to present a resolvable agent profile URI.
+    The tool list below therefore comes from the provider's own published documentation,
+    not from a successful tools/list response.
+tools:
+  status: documented
+  source: https://www.julep.com/agents.md
+  note: >-
+    Named in the provider's documented agent flow. Input schemas are defined by the UCP
+    shopping OpenRPC schema, not by Julep, and were not retrievable anonymously.
+  items:
+  - name: search_catalog
+    summary: Find products in the Julep catalog matching a buyer's intent.
+    capability: dev.ucp.shopping.catalog.search
+  - name: create_cart
+    summary: Create a cart and add the desired items.
+    capability: dev.ucp.shopping.cart
+  - name: create_checkout
+    summary: Start the purchase flow for a cart.
+    capability: dev.ucp.shopping.checkout
+  - name: update_checkout
+    summary: Set the shipping address and fulfillment method on a checkout.
+    capability: dev.ucp.shopping.fulfillment
+  - name: complete_checkout
+    summary: Finalize the purchase. Requires explicit, contemporaneous buyer approval.
+    capability: dev.ucp.shopping.checkout
+capabilities:
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.shopify.catalog
+payment_handlers:
+- id: gpay
+  handler: com.google.pay
+  version: '2026-01-11'
+  card_networks: [VISA, MASTERCARD, AMEX, DISCOVER]
+- id: shopify.card
+  handler: dev.shopify.card
+  version: '2026-01-15'
+  card_brands: [visa, master, american_express, discover, diners_club]
+- id: shop_pay
+  handler: dev.shopify.shop_pay
+  version: '2026-04-08'
+constraints:
+- Checkout, payment, and order placement must not be completed by an agent without
+  explicit contemporaneous human approval (stated in robots.txt and /agents.md).
+- The MCP endpoint is rate-limited per IP; agents are instructed to back off on 429.
+- Agents should pass context.address_country and context.currency for correct pricing.
+alternative_transport:
+  transport: embedded
+  schema: https://ucp.dev/2026-04-08/services/shopping/embedded.openrpc.json
+recommended_skill: https://shop.app/SKILL.md

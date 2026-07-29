@@ -1,0 +1,20 @@
+{
+  "provider": "julep-beauty",
+  "sources": [
+    "julep-beauty-cart-api-openapi.yml",
+    "julep-beauty-catalog-api-openapi.yml",
+    "julep-beauty-discovery-api-openapi.yml",
+    "julep-beauty-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "julep-beauty-cart-api-openapi.yml",
+    "julep-beauty-catalog-api-openapi.yml",
+    "julep-beauty-discovery-api-openapi.yml",
+    "julep-beauty-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

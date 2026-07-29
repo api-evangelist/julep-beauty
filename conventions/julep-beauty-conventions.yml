@@ -1,0 +1,91 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/agents.md
+name: Julep API conventions
+description: >-
+  Cross-cutting semantics for machine access to the Julep storefront, taken from the
+  provider's published agent instructions and from live probes of the endpoints. Julep
+  operates a Shopify storefront rather than a developer platform, so several conventions
+  a platform API would document (idempotency keys, request-id tracing, an error envelope)
+  are simply not published — recorded here as absent rather than guessed.
+docs: https://www.julep.com/agents.md
+auth:
+  style: >-
+    Two-tier. Public catalog JSON is anonymous; customer-account access is OpenID Connect
+    authorization-code + PKCE; the UCP/MCP commerce endpoint requires a resolvable agent
+    profile URI and buyer approval before payment.
+  detail: authentication/julep-beauty-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  notes: >-
+    No idempotency key, retry-safety guidance, or replay window is published. The
+    read-only surface described in openapi/ is all GET and therefore naturally
+    idempotent, but that is a property of the verbs, not a documented guarantee.
+pagination:
+  style: page-number
+  params:
+  - name: limit
+    in: query
+    description: Products per page on the *.json catalog endpoints.
+  - name: page
+    in: query
+    description: Page of results.
+  response_fields: []
+  notes: >-
+    Shopify storefront JSON convention. No cursor, no Link header, and no total-count
+    field is returned; callers page until an empty products array.
+field_expansion:
+  supported: false
+  notes: No expand/fields/sparse-fieldset parameters are documented.
+metadata:
+  supported: false
+  notes: >-
+    Products carry a free-form `tags` array and typed `product_type`/`vendor` fields, but
+    there is no customer-writable metadata surface on the public API.
+request_id_tracing:
+  supported: false
+  notes: No request-id/correlation-id header is documented.
+versioning:
+  scheme: dated
+  detail: >-
+    The agent-commerce surface is versioned with dated UCP protocol versions. The
+    storefront JSON endpoints are unversioned and carry no version header or path segment.
+  current: '2026-04-08'
+  supported:
+  - '2026-04-08'
+  - '2026-01-23'
+  source: https://www.julep.com/.well-known/ucp
+  detail_file: lifecycle/julep-beauty-lifecycle.yml
+errors:
+  envelope: none-documented
+  format: null
+  detail_file: errors/julep-beauty-problem-types.yml
+  notes: >-
+    The storefront returns bare HTTP status codes with an HTML body (Shopify's generic
+    error page) rather than a machine-readable error document. RFC 9457
+    application/problem+json is not used. The UCP/MCP endpoint is the exception: it
+    returns structured JSON-RPC 2.0 errors with a numeric code and a data.code slug.
+rate_limits:
+  signaled: partial
+  documented: true
+  scope: per-IP on the MCP endpoint
+  retry_status: 429
+  guidance: >-
+    "The MCP endpoint is rate-limited per IP. Back off on 429 responses." No
+    X-RateLimit-* headers or Retry-After budget is documented for the storefront JSON
+    endpoints, though 429 and 503 were both observed in practice during probing.
+  detail_file: rate-limits/julep-beauty-rate-limits.yml
+buyer_context:
+  documented: true
+  params:
+  - context.address_country
+  - context.currency
+  notes: >-
+    Agents are instructed to pass buyer country and currency for accurate pricing and
+    availability. The storefront serves 60+ country/region selectors in USD, CAD, and GBP.
+agent_rules:
+  - Checkout, payment, and order placement must never be completed by an agent without
+    explicit, contemporaneous human approval.
+  - Prefer the UCP/MCP endpoints or the Shop skill over scripting or screen-scraping the
+    storefront.

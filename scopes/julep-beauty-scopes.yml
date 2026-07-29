@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/.well-known/openid-configuration
+name: Julep customer-account OAuth scopes
+description: >-
+  Scopes advertised by the OpenID Connect / OAuth authorization-server metadata served on
+  Julep's own domain for its Shopify Customer Accounts deployment. Captured verbatim from
+  scopes_supported; Julep publishes no separate scope reference page, so no descriptions
+  beyond the standard OIDC meanings and the Shopify Customer Account API naming are
+  asserted here.
+issuer: https://shopify.com/authentication/2228781091
+authorization_endpoint: https://account.julep.com/authentication/oauth/authorize
+token_endpoint: https://account.julep.com/authentication/oauth/token
+flows:
+- authorization_code
+- refresh_token
+- 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+pkce: S256
+docs: null
+docs_note: >-
+  No provider-published scope/permission reference page was found on www.julep.com; the
+  authoritative list below is the discovery document itself.
+scopes:
+- name: openid
+  description: Standard OpenID Connect scope requesting an ID token for the signed-in customer.
+  standard: true
+- name: email
+  description: Standard OpenID Connect scope releasing the email and email_verified claims.
+  standard: true
+- name: 'customer-account-api:full'
+  description: >-
+    Full access to the customer-account surface on behalf of the signed-in customer.
+    Named by the discovery document; Julep publishes no finer-grained breakdown.
+  standard: false
+- name: 'customer-account-mcp-api:full'
+  description: >-
+    Full access to the customer-account surface over the MCP transport, for agents acting
+    on behalf of the signed-in customer.
+  standard: false
+claims_supported: [iss, sub, aud, exp, iat, nonce, sid, email, email_verified]

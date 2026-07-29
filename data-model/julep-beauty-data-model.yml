@@ -1,0 +1,84 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/julep-beauty-storefront-openapi.yml
+name: Julep storefront data model
+description: >-
+  Entity graph derived from the schemas in the generated storefront OpenAPI, which were
+  themselves read off live responses from www.julep.com on 2026-07-19. Only entities and
+  reference fields that appear in real payloads are listed.
+entities:
+- name: Product
+  description: A published storefront product.
+  identifier: id
+  id_type: integer
+  slug_field: handle
+  fields: [id, title, handle, body_html, published_at, created_at, updated_at, vendor, product_type, tags, variants, images, options]
+  relationships:
+  - type: has_many
+    target: Variant
+    via: variants
+  - type: has_many
+    target: Image
+    via: images
+  - type: has_many
+    target: Option
+    via: options
+- name: Variant
+  description: A purchasable variant of a product; carries price and availability.
+  identifier: id
+  id_type: integer
+  fields: [id, product_id, title, option1, option2, option3, sku, price, compare_at_price, available, requires_shipping, taxable, grams, position, featured_image, created_at, updated_at]
+  relationships:
+  - type: belongs_to
+    target: Product
+    via: product_id
+  - type: has_one
+    target: Image
+    via: featured_image
+    optional: true
+- name: Image
+  description: A product image, optionally scoped to specific variants.
+  identifier: id
+  id_type: integer
+  fields: [id, product_id, position, src, width, height, variant_ids, created_at, updated_at]
+  relationships:
+  - type: belongs_to
+    target: Product
+    via: product_id
+  - type: has_many
+    target: Variant
+    via: variant_ids
+- name: Option
+  description: A named variant axis (e.g. shade) and its allowed values.
+  identifier: name
+  fields: [name, position, values]
+  relationships:
+  - type: belongs_to
+    target: Product
+    via: parent object
+- name: Collection
+  description: >-
+    A named grouping of products, addressed by handle. Not returned as an entity by the
+    public JSON API — only as the path segment of /collections/{handle}/products.json —
+    so no field list is asserted.
+  identifier: handle
+  relationships:
+  - type: has_many
+    target: Product
+    via: /collections/{handle}/products.json
+- name: Cart
+  description: The caller's session cart.
+  identifier: token
+  id_type: string
+  fields: [token, note, attributes, original_total_price, total_price, total_discount, total_weight, item_count, items, requires_shipping, currency, items_subtotal_price, cart_level_discount_applications, discount_codes]
+  relationships:
+  - type: has_many
+    target: Variant
+    via: items
+    note: Cart line items reference variants; the empty cart observed during probing exposed no line-item shape, so item fields are not asserted.
+notes:
+- Identifiers are plain integers with no type prefix.
+- Money on Product/Variant is a decimal string (e.g. "24.00"); money on Cart is an integer
+  in the currency's minor unit. Do not mix the two.
+- Order, Customer, and Checkout entities exist behind the UCP/MCP and customer-account
+  surfaces but were not retrievable anonymously, so they are deliberately omitted.

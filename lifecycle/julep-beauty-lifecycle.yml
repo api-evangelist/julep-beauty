@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/.well-known/ucp
+name: Julep API lifecycle
+description: >-
+  Versioning and lifecycle posture for Julep's machine-readable surfaces. Julep is a
+  direct-to-consumer beauty brand, not an API platform: it publishes no developer
+  changelog, no deprecation policy, no SLA, and no status page. The one real versioning
+  signal is the dated UCP protocol version negotiated on the agent-commerce endpoint.
+versioning:
+  scheme: dated
+  applies_to: UCP / MCP agent-commerce surface
+  current: '2026-04-08'
+  supported:
+  - version: '2026-04-08'
+    status: current
+    profile: https://julepmain.myshopify.com/.well-known/ucp/2026-04-08
+  - version: '2026-01-23'
+    status: supported
+    profile: https://julepmain.myshopify.com/.well-known/ucp/2026-01-23
+  storefront_json:
+    scheme: unversioned
+    notes: >-
+      The public catalog JSON endpoints carry no version path segment, query parameter,
+      or header.
+deprecation_policy:
+  published: false
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    No RFC 8594 Sunset/Deprecation headers were observed and no deprecation or
+    end-of-life policy is published. The UCP profile advertising two concurrent dated
+    versions implies rolling support but is not a stated policy.
+deprecated_operations: []
+sla:
+  published: false
+status_page:
+  published: false
+  notes: >-
+    No status.julep.com or equivalent was found. Availability is effectively Shopify's;
+    the merchant publishes no incident communication channel of its own.
+changelog:
+  published: false
+  notes: >-
+    No dated developer changelog or release-notes feed exists. The store publishes
+    marketing/editorial blogs (/blogs/news, /blogs/julep, /blogs/julep-self-care,
+    /blogs/quizzes) but nothing describing API or agent-surface change.
+support:
+  contact_page: https://www.julep.com/pages/contact

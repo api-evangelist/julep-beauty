@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/agents.md
+name: Julep rate limits
+description: >-
+  Rate-limit posture for machine access to the Julep storefront. The provider documents
+  rate limiting in prose for the agent-commerce endpoint; no numeric budget, quota, or
+  rate-limit response headers are published for any surface.
+docs: https://www.julep.com/agents.md
+policies:
+- surface: UCP/MCP commerce endpoint
+  endpoint: https://www.julep.com/api/ucp/mcp
+  scope: per-IP
+  limit: not-published
+  window: not-published
+  retry_status: 429
+  guidance: >-
+    Provider text: "Respect rate limits. The MCP endpoint is rate-limited per IP. Back
+    off on 429 responses."
+- surface: Public storefront JSON + HTML
+  endpoints:
+  - /products.json
+  - /collections/{handle}/products.json
+  - /products/{handle}.json
+  - /cart.js
+  - /search
+  scope: per-IP (inferred from observed behavior)
+  limit: not-published
+  window: not-published
+  retry_status: 429
+  observed:
+    probed: '2026-07-19'
+    notes: >-
+      Repeated requests during enrichment returned HTTP 429 with Retry-After: 60, and
+      intermittent HTTP 503 rendering Shopify's generic error page. Requests succeeded on
+      retry after backoff. This is observed behavior, not a published policy.
+headers:
+  published: false
+  notes: >-
+    No X-RateLimit-Limit / X-RateLimit-Remaining / X-RateLimit-Reset headers are
+    documented. Retry-After was observed on 429 responses.

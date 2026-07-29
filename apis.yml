@@ -1,22 +1,213 @@
 aid: julep-beauty
 name: Julep Beauty
-description: Julep Beauty is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Julep is a direct-to-consumer beauty brand selling makeup, skincare, nail polish, and
+  value sets, founded in Seattle by Jane Park and backed by Andreessen Horowitz, Maveron,
+  and others before its 2016 acquisition. The brand positions itself around effortless,
+  low-effort beauty for women who "do a lot but don't want to spend a lot of time doing
+  their makeup," with skincare inspired by its founder's Korean heritage. Julep runs its
+  storefront on Shopify at www.julep.com and also sells through Amazon and Target. It is
+  not an API platform and publishes no developer program, but the storefront carries a
+  substantive agent-facing surface: published agent instructions at /agents.md and
+  /llms.txt, a Universal Commerce Protocol merchant profile at /.well-known/ucp, a live
+  MCP commerce endpoint, OpenID Connect discovery for customer accounts, and a public
+  read-only catalog JSON API.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.julep.com/cdn/shop/files/Julep_Favicon.png?v=1631633077
 url: https://raw.githubusercontent.com/api-evangelist/julep-beauty/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: agentic-commerce-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Beauty
+- Cosmetics
+- Skincare
+- Retail
+- E-Commerce
+- Direct to Consumer
+- Shopify
+- Agentic Commerce
+- Universal Commerce Protocol
+apis:
+- aid: julep-beauty:ucp-commerce
+  name: Julep UCP Commerce MCP Endpoint
+  description: >-
+    Julep's agent-commerce surface. The storefront advertises a Universal Commerce Protocol merchant profile
+    and a live JSON-RPC Model Context Protocol endpoint covering catalog search and lookup, cart, discount,
+    checkout, fulfillment, and order, with Google Pay, Shopify card, and Shop Pay payment handlers. Provided
+    natively by the Shopify platform and served on Julep's own domain. Anonymous tools/list is refused:
+    callers must present a resolvable UCP agent profile URI, and payment requires explicit contemporaneous
+    buyer approval.
+  humanURL: https://www.julep.com/agents.md
+  baseURL: https://www.julep.com/api/ucp/mcp
+  tags:
+  - Agentic Commerce
+  - MCP
+  - Universal Commerce Protocol
+  - Checkout
+  properties:
+  - type: MCPServer
+    url: mcp/julep-beauty-mcp.yml
+  - type: Authentication
+    url: authentication/julep-beauty-authentication.yml
+  - type: OAuthScopes
+    url: scopes/julep-beauty-scopes.yml
+  - type: Documentation
+    url: https://www.julep.com/agents.md
+- aid: julep-beauty:julep-beauty-cart-api
+  name: Julep Beauty Cart API
+  description: Read-only view of the current session cart.
+  humanURL: https://www.julep.com/agents.md
+  baseURL: https://www.julep.com
+  tags:
+  - Cart
+  properties:
+  - type: OpenAPI
+    url: openapi/julep-beauty-cart-api-openapi.yml
+  - type: DataModel
+    url: data-model/julep-beauty-data-model.yml
+  - type: ErrorCatalog
+    url: errors/julep-beauty-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/julep-beauty-rate-limits.yml
+  - type: Conventions
+    url: conventions/julep-beauty-conventions.yml
+  - type: Documentation
+    url: https://www.julep.com/agents.md
+- aid: julep-beauty:julep-beauty-catalog-api
+  name: Julep Beauty Catalog API
+  description: Products and collections.
+  humanURL: https://www.julep.com/agents.md
+  baseURL: https://www.julep.com
+  tags:
+  - Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/julep-beauty-catalog-api-openapi.yml
+  - type: DataModel
+    url: data-model/julep-beauty-data-model.yml
+  - type: ErrorCatalog
+    url: errors/julep-beauty-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/julep-beauty-rate-limits.yml
+  - type: Conventions
+    url: conventions/julep-beauty-conventions.yml
+  - type: Documentation
+    url: https://www.julep.com/agents.md
+- aid: julep-beauty:julep-beauty-discovery-api
+  name: Julep Beauty Discovery API
+  description: Store metadata and agent-discovery documents.
+  humanURL: https://www.julep.com/agents.md
+  baseURL: https://www.julep.com
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/julep-beauty-discovery-api-openapi.yml
+  - type: DataModel
+    url: data-model/julep-beauty-data-model.yml
+  - type: ErrorCatalog
+    url: errors/julep-beauty-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/julep-beauty-rate-limits.yml
+  - type: Conventions
+    url: conventions/julep-beauty-conventions.yml
+  - type: Documentation
+    url: https://www.julep.com/agents.md
+- aid: julep-beauty:julep-beauty-search-api
+  name: Julep Beauty Search API
+  description: Storefront product search.
+  humanURL: https://www.julep.com/agents.md
+  baseURL: https://www.julep.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/julep-beauty-search-api-openapi.yml
+  - type: DataModel
+    url: data-model/julep-beauty-data-model.yml
+  - type: ErrorCatalog
+    url: errors/julep-beauty-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/julep-beauty-rate-limits.yml
+  - type: Conventions
+    url: conventions/julep-beauty-conventions.yml
+  - type: Documentation
+    url: https://www.julep.com/agents.md
+common:
+- type: DomainSecurity
+  url: security/julep-beauty-domain-security.yml
+- type: WellKnown
+  url: well-known/julep-beauty-well-known.yml
+- type: LLMsTxt
+  url: llms/julep-beauty-llms.txt
+- type: MCPServer
+  url: mcp/julep-beauty-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/julep-beauty-authentication.yml
+- type: OAuthScopes
+  url: scopes/julep-beauty-scopes.yml
+- type: Conventions
+  url: conventions/julep-beauty-conventions.yml
+- type: RateLimits
+  url: rate-limits/julep-beauty-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/julep-beauty-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/julep-beauty-lifecycle.yml
+- type: Conformance
+  url: conformance/julep-beauty-conformance.yml
+- type: DataModel
+  url: data-model/julep-beauty-data-model.yml
+- type: Packages
+  url: packages/julep-beauty-packages.yml
+- type: Documentation
+  url: https://www.julep.com/agents.md
+- type: Support
+  url: https://www.julep.com/pages/contact
+- type: Blog
+  url: https://www.julep.com/blogs/news
+- type: SignUp
+  url: https://www.julep.com/account/login
+- type: TermsOfService
+  url: https://www.julep.com/policies/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.julep.com/policies/privacy-policy
+- type: RefundPolicy
+  url: https://www.julep.com/policies/refund-policy
+- type: ShippingPolicy
+  url: https://www.julep.com/policies/shipping-policy
+- type: GitHubOrganization
+  url: https://github.com/julep
+- type: Website
+  url: https://www.julep.com
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

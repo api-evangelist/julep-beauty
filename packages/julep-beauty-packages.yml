@@ -1,0 +1,56 @@
+generated: '2026-07-19'
+method: searched
+source: https://registry.npmjs.org/-/v1/search?text=julep
+name: Julep client libraries and packages
+description: >-
+  Registry search for first-party Julep Beauty client libraries. Result: there are none.
+  Julep is a direct-to-consumer beauty brand running a Shopify storefront; it ships no
+  SDK, no CLI, and no published package of any kind. Recorded so later rounds do not
+  re-search, and so the near-miss packages below are not mistaken for Julep Beauty's.
+searched: '2026-07-19'
+registries_searched:
+- registry: npm
+  query: julep
+  result: no first-party Julep Beauty package
+- registry: PyPI
+  queries: [julep, julep-beauty]
+  result: julep-beauty 404; julep 200 but belongs to a different company (see disambiguation)
+- registry: GitHub
+  query: 'orgs: julep, julepbeauty, julep-beauty'
+  result: >-
+    github.com/julep exists and is Julep Beauty's (location "Seattle, WA", website
+    http://www.julep.com, created 2012-07-20) but has 0 public repositories.
+    julepbeauty and julep-beauty are both 404.
+packages: []
+official_sdk_count: 0
+disambiguation:
+  warning: >-
+    Do NOT attribute these to Julep Beauty. They belong to Julep AI (julep.ai), an
+    unrelated AI-agents company that shares the name.
+  not_ours:
+  - name: '@julep/sdk'
+    registry: npm
+    owner: julep-ai
+    repository: https://github.com/julep-ai/node-sdk
+  - name: '@julep/sdk-mcp'
+    registry: npm
+    owner: julep-ai
+  - name: '@julep/docs-mcp'
+    registry: npm
+    owner: julep-ai
+    note: docs.julep.ai
+  - name: julep
+    registry: PyPI
+    owner: julep-ai
+  - name: julep
+    registry: npm
+    owner: meetup
+    note: An unrelated Sass utility add-on for Bourbon.
+integration_paths:
+  note: >-
+    Where a platform SDK would normally sit, Julep's machine access is served by the
+    platform surfaces already captured in this repo.
+  see:
+  - openapi/julep-beauty-storefront-openapi.yml
+  - mcp/julep-beauty-mcp.yml
+  - skills/_index.yml

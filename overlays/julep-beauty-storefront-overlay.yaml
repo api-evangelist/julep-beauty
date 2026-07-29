@@ -1,0 +1,79 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements — Julep Storefront Read-Only JSON API
+  version: 1.0.0
+extends: ../openapi/julep-beauty-storefront-openapi.yml
+x-generated: '2026-07-19'
+x-method: generated
+x-source: https://www.julep.com/agents.md
+x-note: >-
+  Captures the API Evangelist pipeline's enhancements to the generated storefront
+  description — provenance, agent-readiness metadata, and cross-links to the repo's
+  other artifacts. The underlying OpenAPI is never mutated.
+actions:
+- target: $.info
+  description: Record provenance and cross-link the repo artifacts.
+  update:
+    x-apis-io-slug: julep-beauty
+    x-provenance:
+      method: generated
+      source: https://www.julep.com/agents.md
+      verified: '2026-07-19'
+      verification: Every path returned HTTP 200 from https://www.julep.com on the date above.
+    x-artifacts:
+      authentication: authentication/julep-beauty-authentication.yml
+      scopes: scopes/julep-beauty-scopes.yml
+      conventions: conventions/julep-beauty-conventions.yml
+      errors: errors/julep-beauty-problem-types.yml
+      rate_limits: rate-limits/julep-beauty-rate-limits.yml
+      lifecycle: lifecycle/julep-beauty-lifecycle.yml
+      conformance: conformance/julep-beauty-conformance.yml
+      data_model: data-model/julep-beauty-data-model.yml
+      mcp: mcp/julep-beauty-mcp.yml
+      well_known: well-known/julep-beauty-well-known.yml
+      skills: skills/_index.yml
+- target: $.info
+  description: State the agent posture the provider publishes.
+  update:
+    x-agent-posture:
+      read_only_anonymous: true
+      transaction_requires_buyer_approval: true
+      transaction_transport: UCP/MCP
+      agents_md: https://www.julep.com/agents.md
+      llms_txt: https://www.julep.com/llms.txt
+- target: $.paths[*][*]
+  description: Mark every described operation as anonymous and safe to retry.
+  update:
+    x-auth-required: false
+    x-idempotent: true
+    x-idempotency-basis: >-
+      HTTP verb semantics only — the provider publishes no idempotency-key mechanism.
+- target: $.paths['/products.json'].get
+  description: Document the pagination contract, which the provider does not state.
+  update:
+    x-pagination:
+      style: page-number
+      params: [limit, page]
+      termination: Page until the products array is empty; no total count or cursor is returned.
+- target: $.paths['/collections/{handle}/products.json'].get
+  description: Document the pagination contract.
+  update:
+    x-pagination:
+      style: page-number
+      params: [limit, page]
+      termination: Page until the products array is empty.
+- target: $.paths['/search'].get
+  description: Flag that this operation returns HTML rather than JSON.
+  update:
+    x-response-format: text/html
+    x-agent-guidance: >-
+      Prefer filtering the JSON catalog listings; use search only for free-text intent.
+- target: $.components.schemas.Variant
+  description: Disambiguate the money representation.
+  update:
+    x-money-format: decimal-string
+    x-availability-field: available
+- target: $.components.schemas.Cart
+  description: Disambiguate the money representation.
+  update:
+    x-money-format: integer-minor-units

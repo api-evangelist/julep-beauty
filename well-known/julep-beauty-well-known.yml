@@ -1,0 +1,61 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.julep.com/.well-known/
+name: Julep well-known discovery documents
+description: >-
+  Results of probing the documented /.well-known/ paths on the Julep storefront host
+  (www.julep.com). Julep runs on Shopify, and the platform serves the UCP merchant
+  profile and the Customer Account OAuth/OIDC discovery documents on the merchant's
+  own domain. Absence of a path is recorded as a real result.
+host: www.julep.com
+probed: '2026-07-19'
+paths:
+- path: /.well-known/ucp
+  status: 200
+  file: well-known/julep-beauty-ucp.json
+  content_type: application/json
+  notes: >-
+    Universal Commerce Protocol (ucp.dev) merchant profile. Advertises UCP version
+    2026-04-08 (and 2026-01-23), an MCP transport endpoint, the shopping capability
+    set (cart, checkout, fulfillment, discount, order, catalog.search, catalog.lookup,
+    plus the dev.shopify.catalog extension), and three payment handlers
+    (com.google.pay, dev.shopify.card, dev.shopify.shop_pay).
+- path: /.well-known/openid-configuration
+  status: 200
+  file: well-known/julep-beauty-openid-configuration.json
+  content_type: application/json
+  notes: >-
+    Shopify Customer Accounts OIDC discovery. Issuer
+    https://shopify.com/authentication/2228781091; authorization, token, logout and
+    JWKS endpoints are served on the Julep-branded host account.julep.com.
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: well-known/julep-beauty-oauth-authorization-server.json
+  content_type: application/json
+  notes: >-
+    RFC 8414 authorization-server metadata. Byte-identical to the OIDC discovery
+    document at the time of probe.
+- path: /.well-known/security.txt
+  status: 404
+  file: null
+  notes: No RFC 9116 security.txt is published on www.julep.com.
+- path: /.well-known/api-catalog
+  status: 404
+  file: null
+  notes: No RFC 9727 api-catalog document.
+- path: /.well-known/ai-plugin.json
+  status: 404
+  file: null
+  notes: No ai-plugin manifest.
+related_agent_surfaces:
+- path: /agents.md
+  status: 200
+  file: skills/julep-beauty-agents.md
+  notes: Linked from robots.txt and from /sitemap_agentic_discovery.xml.
+- path: /llms.txt
+  status: 200
+  file: llms/julep-beauty-llms.txt
+  notes: Mirrors /agents.md.
+- path: /sitemap_agentic_discovery.xml
+  status: 200
+  notes: Dedicated agent-discovery sitemap; its single entry is /agents.md.
