@@ -9,7 +9,8 @@ description: >-
   served on the merchant domain. It is provided natively by the Shopify platform rather
   than hand-built by Julep, but it is published under Julep's domain and describes
   Julep's catalog, cart, and checkout.
-status: live
+status: published
+status_raw: live
 transport: mcp
 protocol: Universal Commerce Protocol (UCP)
 endpoints:
