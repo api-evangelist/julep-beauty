@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Julep Storefront Read-Only JSON Cart Discovery API",
+    "version": "2026-07-19"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the storefront sitemap index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/sitemap.xml"
+          },
+          "docs": "Sitemap index linking the product, page, collection, blog, and agentic-discovery sitemaps."
+        },
+        {
+          "info": {
+            "name": "Get the UCP merchant profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/.well-known/ucp"
+          },
+          "docs": "Universal Commerce Protocol merchant profile — supported versions, service endpoints, capabilities, and payment handlers. Saved at well-known/julep-beauty-ucp.json."
+        },
+        {
+          "info": {
+            "name": "Get the agent instructions document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/agents.md"
+          },
+          "docs": "The provider's canonical agent-facing description of the store. Mirrored at /llms.txt and listed in /sitemap_agentic_discovery.xml."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

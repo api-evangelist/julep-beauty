@@ -1,0 +1,244 @@
+{
+  "item": [
+    {
+      "id": "bd0cabe6-6803-41bc-99a7-30b73dcb1168",
+      "name": "Discovery",
+      "description": {
+        "content": "Store metadata and agent-discovery documents.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21ec9535-039b-46b7-9776-a3aca218cd20",
+          "name": "Get the storefront sitemap index",
+          "request": {
+            "name": "Get the storefront sitemap index",
+            "description": {
+              "content": "Sitemap index linking the product, page, collection, blog, and agentic-discovery sitemaps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sitemap.xml"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06552012-c569-4241-b5a3-192a4e6a261f",
+              "name": "Sitemap index.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sitemap.xml"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4ffc684e-d765-49b6-a218-f19ec1ebff74",
+          "name": "Get the UCP merchant profile",
+          "request": {
+            "name": "Get the UCP merchant profile",
+            "description": {
+              "content": "Universal Commerce Protocol merchant profile — supported versions, service endpoints, capabilities, and payment handlers. Saved at well-known/julep-beauty-ucp.json.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ".well-known",
+                "ucp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e51fa75a-55f5-41b6-a492-7073a274dd00",
+              "name": "UCP merchant profile.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ".well-known",
+                    "ucp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "980089e2-9f93-4a38-9f04-15a3d6dc8ee1",
+          "name": "Get the agent instructions document",
+          "request": {
+            "name": "Get the agent instructions document",
+            "description": {
+              "content": "The provider's canonical agent-facing description of the store. Mirrored at /llms.txt and listed in /sitemap_agentic_discovery.xml.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "agents.md"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/markdown"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b91a63ab-4752-4629-9751-319126136f6b",
+              "name": "Agent instructions in Markdown.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "agents.md"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/markdown"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/markdown"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.julep.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bf41314a-72e3-4b5d-a367-fb83ae9f02e0",
+    "name": "Julep Storefront Read-Only JSON Cart Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Julep runs its direct-to-consumer beauty store on Shopify. The provider publishes an\nagent-facing description of the store at https://www.julep.com/agents.md (mirrored at\n/llms.txt) that documents a read-only browsing surface agents may use without\nauthentication, alongside the transactional UCP/MCP endpoint.\n\nThis description was GENERATED by the API Evangelist enrichment pipeline from that\npublished documentation. Every path and every response field named here was verified\nlive against https://www.julep.com on 2026-07-19; nothing was invented. Julep does not\npublish an OpenAPI definition of its own, and the transactional surface (cart mutation,\ncheckout, payment) is deliberately excluded — the provider requires those to go through\nUCP/MCP with explicit buyer approval (see mcp/julep-beauty-mcp.yml).\n\n\nContact Support:\n Name: Julep",
+      "type": "text/plain"
+    }
+  }
+}

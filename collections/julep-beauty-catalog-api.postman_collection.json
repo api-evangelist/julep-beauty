@@ -1,0 +1,548 @@
+{
+  "item": [
+    {
+      "id": "ed7d18e8-05d3-4720-9c47-c689ed9c658d",
+      "name": "Catalog",
+      "description": {
+        "content": "Products and collections.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ff0b0886-5aba-4a91-9192-54b6ec0d16d0",
+          "name": "List published products",
+          "request": {
+            "name": "List published products",
+            "description": {
+              "content": "Returns a page of published products for the store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of products to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page of results to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a32e5e81-6edf-4b9a-af9a-cf2417f70974",
+              "name": "A page of products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": 6597,\n      \"title\": \"string\",\n      \"handle\": \"string\",\n      \"body_html\": \"string\",\n      \"published_at\": \"1990-03-09T23:52:51.607Z\",\n      \"created_at\": \"1953-09-06T10:11:08.335Z\",\n      \"updated_at\": \"2007-07-22T20:02:12.238Z\",\n      \"vendor\": \"Julep\",\n      \"product_type\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"variants\": [\n        {\n          \"id\": 8873,\n          \"product_id\": 5970,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": true,\n          \"requires_shipping\": false,\n          \"taxable\": false,\n          \"grams\": 6004.80385681092,\n          \"position\": 3188,\n          \"featured_image\": {},\n          \"created_at\": \"2002-07-24T16:36:12.236Z\",\n          \"updated_at\": \"1990-03-12T04:25:55.623Z\"\n        },\n        {\n          \"id\": 4839,\n          \"product_id\": 5838,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": true,\n          \"requires_shipping\": false,\n          \"taxable\": true,\n          \"grams\": 7678.758268878263,\n          \"position\": 2513,\n          \"featured_image\": {},\n          \"created_at\": \"2012-04-03T19:30:24.697Z\",\n          \"updated_at\": \"1963-07-09T18:48:04.753Z\"\n        }\n      ],\n      \"images\": [\n        {\n          \"id\": 9661,\n          \"product_id\": 6191,\n          \"position\": 3588,\n          \"src\": \"https://cahSRPkqLaKflfRXBJn.igcUaH+atR\",\n          \"width\": 9250,\n          \"height\": 2141,\n          \"variant_ids\": [\n            119,\n            3643\n          ],\n          \"created_at\": \"1968-02-23T07:08:30.953Z\",\n          \"updated_at\": \"2006-06-03T16:29:49.292Z\"\n        },\n        {\n          \"id\": 6246,\n          \"product_id\": 2950,\n          \"position\": 9218,\n          \"src\": \"http://Q.xufxs6sOOf8AOm8CPO8tT,uBOnzx6x9Jpq\",\n          \"width\": 8979,\n          \"height\": 1166,\n          \"variant_ids\": [\n            7036,\n            1791\n          ],\n          \"created_at\": \"1978-06-09T02:22:20.664Z\",\n          \"updated_at\": \"2009-07-04T00:19:17.125Z\"\n        }\n      ],\n      \"options\": [\n        {\n          \"name\": \"string\",\n          \"position\": 1344,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"position\": 2275,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 2614,\n      \"title\": \"string\",\n      \"handle\": \"string\",\n      \"body_html\": \"string\",\n      \"published_at\": \"1994-05-16T12:50:23.424Z\",\n      \"created_at\": \"1994-05-22T11:32:48.144Z\",\n      \"updated_at\": \"1959-03-30T03:12:30.086Z\",\n      \"vendor\": \"Julep\",\n      \"product_type\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"variants\": [\n        {\n          \"id\": 3721,\n          \"product_id\": 5967,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": false,\n          \"requires_shipping\": true,\n          \"taxable\": true,\n          \"grams\": 6225.731522674351,\n          \"position\": 6587,\n          \"featured_image\": {},\n          \"created_at\": \"1981-12-15T19:07:32.053Z\",\n          \"updated_at\": \"2015-08-03T04:30:10.747Z\"\n        },\n        {\n          \"id\": 3185,\n          \"product_id\": 3227,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": true,\n          \"requires_shipping\": false,\n          \"taxable\": true,\n          \"grams\": 4113.685895242211,\n          \"position\": 8335,\n          \"featured_image\": {},\n          \"created_at\": \"2010-12-04T00:38:09.052Z\",\n          \"updated_at\": \"2023-12-13T17:04:35.759Z\"\n        }\n      ],\n      \"images\": [\n        {\n          \"id\": 162,\n          \"product_id\": 8840,\n          \"position\": 907,\n          \"src\": \"http://anlmQvHtIUneOgE.sytafKtuvw5gydSEL\",\n          \"width\": 8927,\n          \"height\": 9437,\n          \"variant_ids\": [\n            5255,\n            6212\n          ],\n          \"created_at\": \"1994-01-19T02:47:41.069Z\",\n          \"updated_at\": \"1977-03-02T21:58:02.655Z\"\n        },\n        {\n          \"id\": 4674,\n          \"product_id\": 7483,\n          \"position\": 9397,\n          \"src\": \"https://xDvtyBfcKg.iepinz.l2DqcGxqRS8caar5gNXoBmwPfunqqfLLiIr7weun-DI8nyN.w8\",\n          \"width\": 8836,\n          \"height\": 1176,\n          \"variant_ids\": [\n            3594,\n            6533\n          ],\n          \"created_at\": \"1966-04-05T18:07:50.454Z\",\n          \"updated_at\": \"1994-05-10T07:55:40.337Z\"\n        }\n      ],\n      \"options\": [\n        {\n          \"name\": \"string\",\n          \"position\": 9437,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"position\": 892,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbd39baa-ff8a-42f8-bf17-83a5ee0ecc5b",
+              "name": "Rate limited. Back off and retry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d5d27d7-94d3-447c-aaef-3f32b4c10a13",
+              "name": "Storefront temporarily unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb294607-4065-4ca7-bc9d-583980ec0114",
+          "name": "List products in a collection",
+          "request": {
+            "name": "List products in a collection",
+            "description": {
+              "content": "Returns the published products belonging to one collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":handle",
+                "products.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "handle",
+                  "description": "(Required) Collection handle, e.g. `all`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0227b9c-172c-4a98-b70b-af8117a4b618",
+              "name": "A page of products in the collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":handle",
+                    "products.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Collection handle, e.g. `all`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": 6597,\n      \"title\": \"string\",\n      \"handle\": \"string\",\n      \"body_html\": \"string\",\n      \"published_at\": \"1990-03-09T23:52:51.607Z\",\n      \"created_at\": \"1953-09-06T10:11:08.335Z\",\n      \"updated_at\": \"2007-07-22T20:02:12.238Z\",\n      \"vendor\": \"Julep\",\n      \"product_type\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"variants\": [\n        {\n          \"id\": 8873,\n          \"product_id\": 5970,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": true,\n          \"requires_shipping\": false,\n          \"taxable\": false,\n          \"grams\": 6004.80385681092,\n          \"position\": 3188,\n          \"featured_image\": {},\n          \"created_at\": \"2002-07-24T16:36:12.236Z\",\n          \"updated_at\": \"1990-03-12T04:25:55.623Z\"\n        },\n        {\n          \"id\": 4839,\n          \"product_id\": 5838,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": true,\n          \"requires_shipping\": false,\n          \"taxable\": true,\n          \"grams\": 7678.758268878263,\n          \"position\": 2513,\n          \"featured_image\": {},\n          \"created_at\": \"2012-04-03T19:30:24.697Z\",\n          \"updated_at\": \"1963-07-09T18:48:04.753Z\"\n        }\n      ],\n      \"images\": [\n        {\n          \"id\": 9661,\n          \"product_id\": 6191,\n          \"position\": 3588,\n          \"src\": \"https://cahSRPkqLaKflfRXBJn.igcUaH+atR\",\n          \"width\": 9250,\n          \"height\": 2141,\n          \"variant_ids\": [\n            119,\n            3643\n          ],\n          \"created_at\": \"1968-02-23T07:08:30.953Z\",\n          \"updated_at\": \"2006-06-03T16:29:49.292Z\"\n        },\n        {\n          \"id\": 6246,\n          \"product_id\": 2950,\n          \"position\": 9218,\n          \"src\": \"http://Q.xufxs6sOOf8AOm8CPO8tT,uBOnzx6x9Jpq\",\n          \"width\": 8979,\n          \"height\": 1166,\n          \"variant_ids\": [\n            7036,\n            1791\n          ],\n          \"created_at\": \"1978-06-09T02:22:20.664Z\",\n          \"updated_at\": \"2009-07-04T00:19:17.125Z\"\n        }\n      ],\n      \"options\": [\n        {\n          \"name\": \"string\",\n          \"position\": 1344,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"position\": 2275,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    {\n      \"id\": 2614,\n      \"title\": \"string\",\n      \"handle\": \"string\",\n      \"body_html\": \"string\",\n      \"published_at\": \"1994-05-16T12:50:23.424Z\",\n      \"created_at\": \"1994-05-22T11:32:48.144Z\",\n      \"updated_at\": \"1959-03-30T03:12:30.086Z\",\n      \"vendor\": \"Julep\",\n      \"product_type\": \"string\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"variants\": [\n        {\n          \"id\": 3721,\n          \"product_id\": 5967,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": false,\n          \"requires_shipping\": true,\n          \"taxable\": true,\n          \"grams\": 6225.731522674351,\n          \"position\": 6587,\n          \"featured_image\": {},\n          \"created_at\": \"1981-12-15T19:07:32.053Z\",\n          \"updated_at\": \"2015-08-03T04:30:10.747Z\"\n        },\n        {\n          \"id\": 3185,\n          \"product_id\": 3227,\n          \"title\": \"string\",\n          \"option1\": \"string\",\n          \"option2\": \"string\",\n          \"option3\": \"string\",\n          \"sku\": \"string\",\n          \"price\": \"string\",\n          \"compare_at_price\": \"string\",\n          \"available\": true,\n          \"requires_shipping\": false,\n          \"taxable\": true,\n          \"grams\": 4113.685895242211,\n          \"position\": 8335,\n          \"featured_image\": {},\n          \"created_at\": \"2010-12-04T00:38:09.052Z\",\n          \"updated_at\": \"2023-12-13T17:04:35.759Z\"\n        }\n      ],\n      \"images\": [\n        {\n          \"id\": 162,\n          \"product_id\": 8840,\n          \"position\": 907,\n          \"src\": \"http://anlmQvHtIUneOgE.sytafKtuvw5gydSEL\",\n          \"width\": 8927,\n          \"height\": 9437,\n          \"variant_ids\": [\n            5255,\n            6212\n          ],\n          \"created_at\": \"1994-01-19T02:47:41.069Z\",\n          \"updated_at\": \"1977-03-02T21:58:02.655Z\"\n        },\n        {\n          \"id\": 4674,\n          \"product_id\": 7483,\n          \"position\": 9397,\n          \"src\": \"https://xDvtyBfcKg.iepinz.l2DqcGxqRS8caar5gNXoBmwPfunqqfLLiIr7weun-DI8nyN.w8\",\n          \"width\": 8836,\n          \"height\": 1176,\n          \"variant_ids\": [\n            3594,\n            6533\n          ],\n          \"created_at\": \"1966-04-05T18:07:50.454Z\",\n          \"updated_at\": \"1994-05-10T07:55:40.337Z\"\n        }\n      ],\n      \"options\": [\n        {\n          \"name\": \"string\",\n          \"position\": 9437,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"name\": \"string\",\n          \"position\": 892,\n          \"values\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a88f73c6-7f77-4d26-8a37-8ea465e4ff07",
+              "name": "No such collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":handle",
+                    "products.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Collection handle, e.g. `all`."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53f78643-2a8c-4708-b9f9-ee65517eca7b",
+              "name": "Rate limited.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":handle",
+                    "products.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "handle",
+                      "description": "(Required) Collection handle, e.g. `all`."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95a0dfa4-ab5b-4768-9bd2-f94c01290c29",
+          "name": "Get one product",
+          "request": {
+            "name": "Get one product",
+            "description": {
+              "content": "Returns a single product by its handle.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products",
+                "{{handle}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df464f47-f471-41f2-9e64-e1db4702c5dc",
+              "name": "The product.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "{{handle}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"product\": {\n    \"id\": 8966,\n    \"title\": \"string\",\n    \"handle\": \"string\",\n    \"body_html\": \"string\",\n    \"published_at\": \"1992-12-13T05:17:41.078Z\",\n    \"created_at\": \"2015-11-22T01:33:57.115Z\",\n    \"updated_at\": \"1995-11-16T07:14:14.472Z\",\n    \"vendor\": \"Julep\",\n    \"product_type\": \"string\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"variants\": [\n      {\n        \"id\": 7595,\n        \"product_id\": 2996,\n        \"title\": \"string\",\n        \"option1\": \"string\",\n        \"option2\": \"string\",\n        \"option3\": \"string\",\n        \"sku\": \"string\",\n        \"price\": \"string\",\n        \"compare_at_price\": \"string\",\n        \"available\": true,\n        \"requires_shipping\": true,\n        \"taxable\": true,\n        \"grams\": 4549.748471767039,\n        \"position\": 7154,\n        \"featured_image\": {},\n        \"created_at\": \"2002-02-28T10:24:34.379Z\",\n        \"updated_at\": \"2025-03-06T17:20:32.086Z\"\n      },\n      {\n        \"id\": 8324,\n        \"product_id\": 9872,\n        \"title\": \"string\",\n        \"option1\": \"string\",\n        \"option2\": \"string\",\n        \"option3\": \"string\",\n        \"sku\": \"string\",\n        \"price\": \"string\",\n        \"compare_at_price\": \"string\",\n        \"available\": true,\n        \"requires_shipping\": true,\n        \"taxable\": false,\n        \"grams\": 6670.81443987441,\n        \"position\": 7,\n        \"featured_image\": {},\n        \"created_at\": \"2011-01-23T05:52:25.296Z\",\n        \"updated_at\": \"2003-10-03T20:43:58.152Z\"\n      }\n    ],\n    \"images\": [\n      {\n        \"id\": 6375,\n        \"product_id\": 2349,\n        \"position\": 9410,\n        \"src\": \"https://vrkecYAUJTSJrpBegdERewjza.azuu3a76sgMAHY8x0rijAWLz4NpU,3sxZzSNYuneyJ,\",\n        \"width\": 5785,\n        \"height\": 6925,\n        \"variant_ids\": [\n          8790,\n          278\n        ],\n        \"created_at\": \"1987-06-02T21:38:25.875Z\",\n        \"updated_at\": \"1983-03-29T02:17:27.008Z\"\n      },\n      {\n        \"id\": 7774,\n        \"product_id\": 7990,\n        \"position\": 4103,\n        \"src\": \"https://uaOzFjtlGOTziCwsEPPsl.lzieXPxvumXiixfI2xzHP5JBgpqxw+9v4FEZgxvXa1jrJTQylcK.XmYo\",\n        \"width\": 9214,\n        \"height\": 6662,\n        \"variant_ids\": [\n          8086,\n          3347\n        ],\n        \"created_at\": \"1983-10-06T22:30:18.270Z\",\n        \"updated_at\": \"2011-11-13T18:43:43.863Z\"\n      }\n    ],\n    \"options\": [\n      {\n        \"name\": \"string\",\n        \"position\": 9861,\n        \"values\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"position\": 4674,\n        \"values\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a964d7a-ffcd-4ffd-8fb1-f2eba35a31d8",
+              "name": "No such product.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "{{handle}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4aa48d08-772e-4ce2-995b-c44dc035eeb0",
+              "name": "Rate limited.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "{{handle}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.julep.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Product handle, e.g. `slowpoke-microneedling-facial-roller-gwp`.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "handle"
+    }
+  ],
+  "info": {
+    "_postman_id": "e3ffb10d-4e28-47f3-b836-65452f3f3d69",
+    "name": "Julep Storefront Read-Only JSON Cart Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Julep runs its direct-to-consumer beauty store on Shopify. The provider publishes an\nagent-facing description of the store at https://www.julep.com/agents.md (mirrored at\n/llms.txt) that documents a read-only browsing surface agents may use without\nauthentication, alongside the transactional UCP/MCP endpoint.\n\nThis description was GENERATED by the API Evangelist enrichment pipeline from that\npublished documentation. Every path and every response field named here was verified\nlive against https://www.julep.com on 2026-07-19; nothing was invented. Julep does not\npublish an OpenAPI definition of its own, and the transactional surface (cart mutation,\ncheckout, payment) is deliberately excluded — the provider requires those to go through\nUCP/MCP with explicit buyer approval (see mcp/julep-beauty-mcp.yml).\n\n\nContact Support:\n Name: Julep",
+      "type": "text/plain"
+    }
+  }
+}

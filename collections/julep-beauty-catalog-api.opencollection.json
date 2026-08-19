@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Julep Storefront Read-Only JSON Cart Catalog API",
+    "version": "2026-07-19"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List published products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/products.json",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of products to return per page."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page of results to return."
+              }
+            ]
+          },
+          "docs": "Returns a page of published products for the store."
+        },
+        {
+          "info": {
+            "name": "List products in a collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/collections/:handle/products.json",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Collection handle, e.g. `all`."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the published products belonging to one collection."
+        },
+        {
+          "info": {
+            "name": "Get one product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/products/:handle.json",
+            "params": [
+              {
+                "name": "handle",
+                "value": "",
+                "type": "path",
+                "description": "Product handle, e.g. `slowpoke-microneedling-facial-roller-gwp`."
+              }
+            ]
+          },
+          "docs": "Returns a single product by its handle."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

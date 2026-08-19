@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Julep Storefront Read-Only JSON Cart Search API",
+    "version": "2026-07-19"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search the storefront",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Search terms."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Resource type to search."
+              }
+            ]
+          },
+          "docs": "Storefront search. Documented by the provider for agents as `GET /search?q={query}&type=product`. Returns an HTML results page."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Julep Storefront Read-Only JSON Cart API",
+    "version": "2026-07-19"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cart",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the current session cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.julep.com/cart.js"
+          },
+          "docs": "Returns the caller's session cart as JSON. Read-only in this description; the provider requires transactional flows to run through UCP/MCP with buyer approval."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
