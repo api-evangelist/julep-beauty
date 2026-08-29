@@ -12,6 +12,18 @@ description: >-
   /llms.txt, a Universal Commerce Protocol merchant profile at /.well-known/ucp, a live
   MCP commerce endpoint, OpenID Connect discovery for customer accounts, and a public
   read-only catalog JSON API.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
