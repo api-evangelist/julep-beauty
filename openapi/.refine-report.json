@@ -15,6 +15,12 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "julep-beauty-cart-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "julep-beauty-catalog-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "julep-beauty-discovery-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "julep-beauty-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
