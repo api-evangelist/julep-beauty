@@ -1,10 +1,7 @@
 {
   "provider": "julep-beauty",
   "sources": [
-    "julep-beauty-cart-api-openapi.yml",
-    "julep-beauty-catalog-api-openapi.yml",
-    "julep-beauty-discovery-api-openapi.yml",
-    "julep-beauty-search-api-openapi.yml"
+    "_ae-authored/julep-beauty-storefront-openapi.yml"
   ],
   "outputs": [
     "julep-beauty-cart-api-openapi.yml",
@@ -16,11 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "julep-beauty-cart-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "julep-beauty-catalog-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "julep-beauty-discovery-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "julep-beauty-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "julep-beauty-storefront-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "julep-beauty-cart-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "julep-beauty-catalog-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "julep-beauty-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "julep-beauty-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
