@@ -87,11 +87,13 @@ apis:
     url: scopes/julep-beauty-scopes.yml
   - type: Documentation
     url: https://www.julep.com/agents.md
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 - aid: julep-beauty:julep-beauty-cart-api
   name: Julep Beauty Cart API
   description: Read-only view of the current session cart.
   humanURL: https://www.julep.com/agents.md
-  baseURL: https://www.julep.com
   tags:
   - Cart
   properties:
@@ -107,31 +109,10 @@ apis:
     url: conventions/julep-beauty-conventions.yml
   - type: Documentation
     url: https://www.julep.com/agents.md
-- aid: julep-beauty:julep-beauty-catalog-api
-  name: Julep Beauty Catalog API
-  description: Products and collections.
-  humanURL: https://www.julep.com/agents.md
-  baseURL: https://www.julep.com
-  tags:
-  - Catalog
-  properties:
-  - type: OpenAPI
-    url: openapi/julep-beauty-catalog-api-openapi.yml
-  - type: DataModel
-    url: data-model/julep-beauty-data-model.yml
-  - type: ErrorCatalog
-    url: errors/julep-beauty-problem-types.yml
-  - type: RateLimits
-    url: rate-limits/julep-beauty-rate-limits.yml
-  - type: Conventions
-    url: conventions/julep-beauty-conventions.yml
-  - type: Documentation
-    url: https://www.julep.com/agents.md
 - aid: julep-beauty:julep-beauty-discovery-api
   name: Julep Beauty Discovery API
   description: Store metadata and agent-discovery documents.
   humanURL: https://www.julep.com/agents.md
-  baseURL: https://www.julep.com
   tags:
   - Discovery
   properties:
@@ -151,7 +132,6 @@ apis:
   name: Julep Beauty Search API
   description: Storefront product search.
   humanURL: https://www.julep.com/agents.md
-  baseURL: https://www.julep.com
   tags:
   - Search
   properties:
@@ -167,6 +147,21 @@ apis:
     url: conventions/julep-beauty-conventions.yml
   - type: Documentation
     url: https://www.julep.com/agents.md
+- aid: julep-beauty:julep-com-shopify-storefront-json
+  name: Julep Beauty Storefront JSON (Shopify)
+  description: >-
+    The Shopify Storefront JSON surface that Shopify generates for every Shopify site or store, served
+    on julep.com. Catalogued as one platform-generated record, not as separate APIs: nobody at Julep Beauty
+    designed it.
+  baseURL: https://julep.com
+  tags:
+  - Shopify
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: storefront-json
+  properties:
+  - type: Documentation
+    url: https://julep.com
 common:
 - type: Overlay
   url: overlays/julep-beauty-storefront-overlay.yaml

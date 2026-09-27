@@ -114,17 +114,14 @@ paths:
           description: Rate limited.
 components:
   schemas:
-    Option:
+    ProductList:
       type: object
+      description: A page of published products.
       properties:
-        name:
-          type: string
-        position:
-          type: integer
-        values:
+        products:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/Product'
     Variant:
       type: object
       description: A purchasable variant of a product.
@@ -177,6 +174,43 @@ components:
         updated_at:
           type: string
           format: date-time
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+        product_id:
+          type: integer
+        position:
+          type: integer
+        src:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        variant_ids:
+          type: array
+          items:
+            type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Option:
+      type: object
+      properties:
+        name:
+          type: string
+        position:
+          type: integer
+        values:
+          type: array
+          items:
+            type: string
     Product:
       type: object
       description: A published storefront product.
@@ -223,37 +257,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Option'
-    ProductList:
-      type: object
-      description: A page of published products.
-      properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-        product_id:
-          type: integer
-        position:
-          type: integer
-        src:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        variant_ids:
-          type: array
-          items:
-            type: integer
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time

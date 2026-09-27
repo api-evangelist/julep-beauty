@@ -1,7 +1,10 @@
 {
   "provider": "julep-beauty",
   "sources": [
-    "_ae-authored/julep-beauty-storefront-openapi.yml"
+    "julep-beauty-cart-api-openapi.yml",
+    "julep-beauty-catalog-api-openapi.yml",
+    "julep-beauty-discovery-api-openapi.yml",
+    "julep-beauty-search-api-openapi.yml"
   ],
   "outputs": [
     "julep-beauty-cart-api-openapi.yml",
@@ -11,16 +14,16 @@
   ],
   "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [
-    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "julep-beauty-storefront-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+  "warnings": [
+    "julep-beauty-cart-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /cart.js get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "julep-beauty-catalog-api-openapi.yml: previously refined output kept for 3 operation(s) no archived document covers (e.g. /collections/{handle}/products.json get, /products.json get, /products/{handle}.json get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "julep-beauty-discovery-api-openapi.yml: previously refined output kept for 3 operation(s) no archived document covers (e.g. /.well-known/ucp get, /agents.md get, /sitemap.xml get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "julep-beauty-search-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /search get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
   ],
-  "skipped": [
-    "julep-beauty-cart-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "julep-beauty-catalog-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "julep-beauty-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "julep-beauty-search-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "notes": [
+    "julep-beauty-storefront-openapi.yml: platform-generated surface (shopify/storefront-json), not split (roadmap#680)",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apis.yml register: written (+1 apis, 5 total)"
+  ],
+  "skipped": []
 }
