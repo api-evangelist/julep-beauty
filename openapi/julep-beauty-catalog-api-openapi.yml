@@ -200,17 +200,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    Option:
-      type: object
-      properties:
-        name:
-          type: string
-        position:
-          type: integer
-        values:
-          type: array
-          items:
-            type: string
     Product:
       type: object
       description: A published storefront product.
@@ -257,3 +246,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Option'
+    Option:
+      type: object
+      properties:
+        name:
+          type: string
+        position:
+          type: integer
+        values:
+          type: array
+          items:
+            type: string
