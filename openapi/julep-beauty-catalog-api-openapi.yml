@@ -114,6 +114,63 @@ paths:
           description: Rate limited.
 components:
   schemas:
+    Option:
+      type: object
+      properties:
+        name:
+          type: string
+        position:
+          type: integer
+        values:
+          type: array
+          items:
+            type: string
+    Product:
+      type: object
+      description: A published storefront product.
+      properties:
+        id:
+          type: integer
+          description: Product identifier.
+        title:
+          type: string
+        handle:
+          type: string
+          description: URL-safe product slug.
+        body_html:
+          type: string
+          description: Product description as HTML.
+        published_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        vendor:
+          type: string
+          examples:
+          - Julep
+        product_type:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/Variant'
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
     ProductList:
       type: object
       description: A page of published products.
@@ -122,6 +179,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product'
+    Image:
+      type: object
+      properties:
+        id:
+          type: integer
+        product_id:
+          type: integer
+        position:
+          type: integer
+        src:
+          type: string
+          format: uri
+        width:
+          type: integer
+        height:
+          type: integer
+        variant_ids:
+          type: array
+          items:
+            type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
     Variant:
       type: object
       description: A purchasable variant of a product.
@@ -174,86 +257,3 @@ components:
         updated_at:
           type: string
           format: date-time
-    Image:
-      type: object
-      properties:
-        id:
-          type: integer
-        product_id:
-          type: integer
-        position:
-          type: integer
-        src:
-          type: string
-          format: uri
-        width:
-          type: integer
-        height:
-          type: integer
-        variant_ids:
-          type: array
-          items:
-            type: integer
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-    Product:
-      type: object
-      description: A published storefront product.
-      properties:
-        id:
-          type: integer
-          description: Product identifier.
-        title:
-          type: string
-        handle:
-          type: string
-          description: URL-safe product slug.
-        body_html:
-          type: string
-          description: Product description as HTML.
-        published_at:
-          type: string
-          format: date-time
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        vendor:
-          type: string
-          examples:
-          - Julep
-        product_type:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/Variant'
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/Option'
-    Option:
-      type: object
-      properties:
-        name:
-          type: string
-        position:
-          type: integer
-        values:
-          type: array
-          items:
-            type: string
