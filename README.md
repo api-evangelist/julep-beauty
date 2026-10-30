@@ -64,6 +64,128 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Julep Beauty is a company surfaced as a portfolio company of a16z and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Julep is a direct-to-consumer beauty brand selling makeup, skincare, nail polish, and value sets, founded in Seattle by Jane Park and backed by Andreessen Horowitz, Maveron, and others before its 2016 acquisition. The brand positions itself around effortless, low-effort beauty for women who "do a lot but don't want to spend a lot of time doing their makeup," with skincare inspired by its founder's Korean heritage. Julep runs its storefront on Shopify at www.julep.com and also sells through Amazon and Target. It is not an API platform and publishes no developer program, but the storefront carries a substantive agent-facing surface: published agent instructions at /agents.md and /llms.txt, a Universal Commerce Protocol merchant profile at /.well-known/ucp, a live MCP commerce endpoint, OpenID Connect discovery for customer accounts, and a public read-only catalog JSON API.
 
-Backed by: a16z
+**Areas:** Company · Beauty · Cosmetics · Skincare · Retail · E-Commerce · Direct to Consumer · Shopify · Agentic Commerce · Universal Commerce Protocol
+
+## Julep Beauty on APIs.io
+
+Everything profiled for Julep Beauty is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/julep-beauty/](https://apis.io/providers/julep-beauty/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Julep UCP Commerce MCP Endpoint](https://apis.io/apis/julep-beauty/ucp-commerce/) — Julep's agent-commerce surface. The storefront advertises a Universal Commerce Protocol merchant profile and a live JSON-RPC Model Context Protocol endpoint…
+- [Julep Beauty Cart API](https://apis.io/apis/julep-beauty/julep-beauty-cart-api/) — Read-only view of the current session cart.
+- [Julep Beauty Discovery API](https://apis.io/apis/julep-beauty/julep-beauty-discovery-api/) — Store metadata and agent-discovery documents.
+- [Julep Beauty Search API](https://apis.io/apis/julep-beauty/julep-beauty-search-api/) — Storefront product search.
+- [Julep Beauty Storefront JSON (Shopify)](https://apis.io/apis/julep-beauty/julep-com-shopify-storefront-json/) — The Shopify Storefront JSON surface that Shopify generates for every Shopify site or store, served on julep.com. Catalogued as one platform-generated…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Julep UCP Commerce MCP Server](https://apis.io/servers/julep-beauty/julep-ucp-commerce-mcp-server/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Julep Storefront Read-Only JSON Cart API](https://apis.io/collections/julep-beauty/open-julep-beauty-cart-api/)
+- [Julep Storefront Read-Only JSON Cart Catalog API](https://apis.io/collections/julep-beauty/open-julep-beauty-catalog-api/)
+- [Julep Storefront Read-Only JSON Cart Discovery API](https://apis.io/collections/julep-beauty/open-julep-beauty-discovery-api/)
+- [Julep Storefront Read-Only JSON Cart Search API](https://apis.io/collections/julep-beauty/open-julep-beauty-search-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Julep Beauty Storefront Overlay](https://apis.io/overlays/julep-beauty/julep-beauty-storefront-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Julep Beauty Authentication](https://apis.io/security/julep-beauty/julep-beauty-authentication/)
+- [Julep Beauty Domain Security](https://apis.io/security/julep-beauty/julep-beauty-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Julep Beauty Scopes](https://apis.io/scopes/julep-beauty/julep-beauty-scopes/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Julep Beauty Rate Limits](https://apis.io/rate-limits/julep-beauty/julep-beauty-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.julep.com)
+- [Documentation](https://www.julep.com/agents.md)
+- [Sign up](https://www.julep.com/account/login)
+- [Support](https://www.julep.com/pages/contact)
+- [Blog](https://www.julep.com/blogs/news)
+- [Terms of service](https://www.julep.com/policies/terms-of-service)
+- [Privacy policy](https://www.julep.com/policies/privacy-policy)
+- [GitHub](https://github.com/julep)
+
+## API Evangelist rating
+
+**Kin Score 28.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.0 |
+| Contract quality | 12.9 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 34.2 |
+
+**Agent readiness 30.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/julep-beauty/](https://apis.io/providers/julep-beauty/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Julep Beauty: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/julep-beauty/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
